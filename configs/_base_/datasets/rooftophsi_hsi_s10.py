@@ -1,6 +1,6 @@
 # dataset settings
 dataset_type = 'RhsiDataset'
-data_root = 'data/RIT-HS20/'
+data_root = '/content/drive/MyDrive/SSHODC/TRAIN/'
 train_pipeline = [
     dict(type='LoadMaskedHSIImageFromFile'),
     dict(type='LoadAnnotations', with_bbox=True),
