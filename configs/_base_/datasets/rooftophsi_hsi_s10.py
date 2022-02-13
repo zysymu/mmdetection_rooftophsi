@@ -1,6 +1,6 @@
 # dataset settings
 dataset_type = 'RhsiDataset'
-data_root = '/content/drive/MyDrive/SSHODC/TRAIN/'
+data_root = '/content/drive/MyDrive/SSHODC/'
 train_pipeline = [
     dict(type='LoadMaskedHSIImageFromFile'),
     dict(type='LoadAnnotations', with_bbox=True),
@@ -32,20 +32,20 @@ data = dict(
         times=3,
         dataset=dict(
 		type=dataset_type,
-		ann_file=data_root + 'annotationsjson/instances_train_s10.json',
-		img_prefix=data_root + 'spectral/',
-		mask_prefix=data_root + 'masks/',
+		ann_file=data_root + 'TRAIN/annotationsjson/instances_train_s10.json',
+		img_prefix=data_root + 'TRAIN/spectral/',
+		mask_prefix=data_root + 'TRAIN/masks/',
 		pipeline=train_pipeline)),
     val=dict(
         type=dataset_type,
-        ann_file=data_root + 'annotationsjson/instances_train_s10.json', #'annotationsjson/instances_val.json',
-        img_prefix=data_root + 'spectral/',
-	mask_prefix=data_root + 'masks/',
+        ann_file=data_root + 'VAL/annotationsjson/instances_val_id.json',
+        img_prefix=data_root + 'VAL/spectral/',
+	mask_prefix=data_root + 'VAL/masks/',
         pipeline=test_pipeline),
     test=dict(
         type=dataset_type,
-        ann_file=data_root + 'annotationsjson/instances_train_s10.json', #'annotationsjson/instances_val.json',
-        img_prefix=data_root + 'spectral/',
-	mask_prefix=data_root + 'masks/',
+        ann_file=data_root + 'VAL/annotationsjson/instances_val_id.json',
+        img_prefix=data_root + 'VAL/spectral/',
+	mask_prefix=data_root + 'VAL/masks/',
         pipeline=test_pipeline))
 evaluation = dict(interval=2, metric='bbox', classwise=True)
